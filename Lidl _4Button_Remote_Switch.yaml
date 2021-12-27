@@ -96,7 +96,8 @@ action:
 - variables:
     command: '{{ trigger.event.data.command }}'   
     endpoint_id: '{{ trigger.event.data.endpoint_id }}'
-
+    cluster_id: '{{ trigger.event.data.cluster_id }}'
+    args: '{{ trigger.event.data.args }}'
 - choose:
   - conditions: "{{ command == 'remote_button_short_press' }}"
     sequence:
