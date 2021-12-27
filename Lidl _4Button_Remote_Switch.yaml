@@ -121,7 +121,7 @@ action:
         sequence: !input 'button_three_double_press'
       - conditions: '{{ endpoint_id == 4 }}'
         sequence: !input 'button_four_double_press'
-	
+
   - conditions: "{{ command == 'remote_button_long_press' }}"
     sequence:
     - choose:
