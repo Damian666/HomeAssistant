@@ -58,20 +58,20 @@ action:
 
 #Here we choose which button is pressed by the details we got from the event
 - choose:
-
+  
   #Here we handle the Off Button
-  - conditions: "{{ command == 'off' } and { cluster_id == 6}}"
+  - conditions: "{{ command == 'off'  and cluster_id == 6 }}"
     sequence: !input 'button_one_short_press'
 
   #Here we handle the On Button
-  - conditions: "{{ command == 'on' } and { endpoint_id == 1} and { cluster_id == 6}}"
+  - conditions: "{{ command == 'on' and endpoint_id == 1 and cluster_id == 6 }}"
     sequence: !input 'button_two_short_press'
     
   #Here we handle the Up button
-  - conditions: "{{ command == 'step' } and { endpoint_id == 1} and { cluster_id == 8} }}"
+  - conditions: "{{  command == 'step' and endpoint_id == '1' and cluster_id == 8 and args == 0 }}"
     sequence: !input 'button_three_short_press'
     
   #Here we handle the Down button
-  - conditions: "{{ command == 'step' } and { endpoint_id == 1} and { cluster_id == 8} }}"
+  - conditions: "{{  command == 'step' and endpoint_id == '1' and cluster_id == 8 and args == 1 }}"
     sequence: !input 'button_four_short_press'
     
