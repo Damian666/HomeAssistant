@@ -68,10 +68,10 @@ action:
     sequence: !input 'button_two_short_press'
     
   #Here we handle the Up button
-  - conditions: "{{ command == 'step' } and  { endpoint_id == 1} and { cluster_id == 8} and {args == [1,51,10] }}"
+  - conditions: "{{ command == 'step' } and  { endpoint_id == 1} and { cluster_id == 8} and {args == '1,51,10' }}"
     sequence: !input 'button_three_short_press'
     
   #Here we handle the Down button
-  - conditions: "{{ command == 'step' } and  { endpoint_id == 1} and { cluster_id == 8} and {args == [0,51,10] }}"
-    sequence: !input 'button_three_short_press'
+  - conditions: "{{ command == 'step' } and  { endpoint_id == 1} and { cluster_id == 8} and {args == '0,51,10' }}"
+    sequence: !input 'button_four_short_press'
     
