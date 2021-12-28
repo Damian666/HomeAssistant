@@ -52,11 +52,11 @@ trigger:
 action:
 - variables:
     command: '{{ trigger.event.data.command }}'
-    args: '{{ trigger.event.data.args[0] }}'
+    args: '{{ trigger.event.data.args }}'
 
 #Here we choose which button is pressed by the details we got from the event
 - choose:
-  
+
   #Here we handle the Off Button
   - conditions: "{{ command == 'off' }}"
     sequence: !input 'button_one_short_press'
@@ -64,12 +64,11 @@ action:
   #Here we handle the On Button
   - conditions: "{{ command == 'on' }}"
     sequence: !input 'button_two_short_press'
-    
+
   #Here we handle the Up button
-  - conditions: "{{  command == 'step' and args == 0 }}"
+  - conditions: "{{  command == 'step' and args == [0,51,10] }}"
     sequence: !input 'button_three_short_press'
-    
+
   #Here we handle the Down button
-  - conditions: "{{  command == 'step' and args == 1 }}"
+  - conditions: "{{  command == 'step' and args == [1,51,10] }}"
     sequence: !input 'button_four_short_press'
-    
