@@ -30,21 +30,21 @@ blueprint:
       default: []
       selector:
         action: {}
+    button_three_long_press:
+      name: Long Press
+      description: Action to run on button 3 long press
+      default: []
+      selector:
+        action: {}
     button_four_short_press:
       name: Single Press
       description: Action to run on button 4 single press
       default: []
       selector:
-        action: {}
-    longpress_plus_action:
-      name: Longpress +
-      description: Action to run when + is longpressed
-      default: []
-      selector:
-        action: {}
-    longpress_minus_action:
-      name: Longpress -
-      description: Action to run when - is longpressed
+        action: {}  
+    button_four_long_press:
+      name: Long Press
+      description: Action to run on button 4 long press
       default: []
       selector:
         action: {}
@@ -59,8 +59,6 @@ action:
 - variables:
     command: '{{ trigger.event.data.command }}'
     args: '{{ trigger.event.data.args }}'
-    longpress_plus_action: !input "longpress_plus_action"
-    longpress_minus_action: !input "longpress_minus_action"
 - choose:
   - conditions: '{{ command == ''off'' }}'
     sequence: !input 'button_one_short_press'
@@ -70,15 +68,7 @@ action:
     sequence: !input 'button_three_short_press'
   - conditions: '{{  command == ''step'' and args == [1,51,10] }}'
     sequence: !input 'button_four_short_press'
-  - conditions:
-      - '{{ command == "step" }}'
-      - "{{ args == [1, 51, 10] }}"
-    sequence: !input "minus_action"
-  - conditions:
-      - '{{ command == "move" }}'
-      - "{{ args == [0, 51,] }}"
-    sequence: !input "longpress_plus_action"
-  - conditions:
-      - '{{ command == "move" }}'
-      - "{{ args == [1, 51,] }}"
-    sequence: !input "longpress_minus_action"```
+  - conditions: '{{ command == "move" and args == [0, 51,] }}"
+    sequence: !input "button_three_long_press"
+  - conditions: '{{ command == "move" and args == [1, 51,] }}"
+    sequence: !input 'button_four_long_press`
