@@ -68,7 +68,7 @@ action:
     sequence: !input 'button_three_short_press'
   - conditions: '{{  command == ''step'' and args == [1,51,10] }}'
     sequence: !input 'button_four_short_press'
-  - conditions: '{{ command == "move" and args == [0, 51,] }}"
+  - conditions: '{{ command == "move" and args == [0, 51,] }}'
     sequence: !input "button_three_long_press"
-  - conditions: '{{ command == "move" and args == [1, 51,] }}"
+  - conditions: '{{ command == "move" and args == [1, 51,] }}'
     sequence: !input 'button_four_long_press`
